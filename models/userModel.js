@@ -33,7 +33,7 @@ const findUserByEmail = (email, callback) => {
 };
 
 
-// Find a user by username
+
 const findUserByUsername = (username, callback) => {
   const query = "SELECT * FROM users WHERE username = ?";
   db.query(query, [username], (err, results) => {

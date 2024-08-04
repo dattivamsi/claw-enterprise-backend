@@ -11,7 +11,6 @@ exports.register = (req, res) => {
       return res.status(500).json({ error: err });
     }
 
-    // If the username is found, return a 400 status with a message
     if (results.length > 0) {
       return res.status(400).json({ message: "Username already taken" });
     }
@@ -22,7 +21,7 @@ exports.register = (req, res) => {
       }
     });
 
-    // Proceed with password hashing and user creation
+    
     bcrypt.hash(password, 10, (err, hash) => {
       if (err) {
         console.error("Error hashing password:", err);

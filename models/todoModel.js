@@ -1,6 +1,6 @@
 const db = require('../config/db');
 
-// Create a new to-do item
+
 const createTodo = (userId, description, callback) => {
   const query = 'INSERT INTO todos (user_id, description) VALUES (?, ?)';
   db.query(query, [userId, description], (err, results) => {
@@ -9,7 +9,7 @@ const createTodo = (userId, description, callback) => {
   });
 };
 
-// Get all to-do items for a user
+
 const getTodosByUserId = (userId, callback) => {
   const query = 'SELECT * FROM todos WHERE user_id = ?';
   db.query(query, [userId], (err, results) => {
@@ -18,7 +18,7 @@ const getTodosByUserId = (userId, callback) => {
   });
 };
 
-// Update a to-do item
+
 const updateTodo = (id, userId, description, status, callback) => {
   const query = 'UPDATE todos SET description = ?, status = ? WHERE id = ? AND user_id = ?';
   db.query(query, [description, status, id, userId], (err, results) => {
@@ -28,7 +28,7 @@ const updateTodo = (id, userId, description, status, callback) => {
   });
 };
 
-// Delete a to-do item
+
 const deleteTodo = (id, userId, callback) => {
   const query = 'DELETE FROM todos WHERE id = ? AND user_id = ?';
   db.query(query, [id, userId], (err, results) => {
